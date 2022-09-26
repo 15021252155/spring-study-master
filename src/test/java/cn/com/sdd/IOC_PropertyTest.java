@@ -1,14 +1,10 @@
 package cn.com.sdd;
 
 import cn.com.sdd.bean.Human;
-import cn.com.sdd.bean.Person;
 import cn.com.sdd.config.MainConfigOfProperty;
 import org.junit.Test;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.core.env.ConfigurableEnvironment;
-
-import java.util.Map;
 
 /**
  * @ClassName IOC_Property

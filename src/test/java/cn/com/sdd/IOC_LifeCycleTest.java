@@ -2,7 +2,6 @@ package cn.com.sdd;
 
 import cn.com.sdd.config.MainConfigOfLifeCycle;
 import org.junit.Test;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**
@@ -13,7 +12,6 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
  * @Version 1.0
  **/
 public class IOC_LifeCycleTest {
-
     @Test
     public void test01() {
         //创建IOC容器
@@ -21,9 +19,9 @@ public class IOC_LifeCycleTest {
         System.out.println("ioc容器创建完成...");
 
         applicationContext.getBean("car");
+
         //关闭容器
         applicationContext.close();
-
 
     }
 }
