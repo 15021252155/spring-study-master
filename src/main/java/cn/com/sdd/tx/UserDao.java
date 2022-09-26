@@ -19,7 +19,7 @@ public class UserDao {
     private JdbcTemplate jdbcTemplate;
 
     public  void insert(){
-        String sql="insert into tbl_user(username,age) values (?,?);";
+        String sql="insert into user(username,age) values (?,?);";
         String username = UUID.randomUUID().toString().substring(0, 5);
         jdbcTemplate.update(sql,username,18);
     }

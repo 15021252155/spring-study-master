@@ -2,6 +2,7 @@ package cn.com.sdd.config;
 
 import cn.com.sdd.bean.Person;
 import cn.com.sdd.condition.LinuxCondition;
+import cn.com.sdd.condition.MacCondition;
 import cn.com.sdd.condition.WindowsCondition;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Conditional;
@@ -36,5 +37,11 @@ public class MainConfigConditional {
     @Bean("linus")
     public Person getPersonLinus() {
         return new Person("linus", 48);
+    }
+
+    @Conditional(MacCondition.class)
+    @Bean("jobs")
+    public Person getPersonJobs() {
+        return new Person("jobs", 88);
     }
 }

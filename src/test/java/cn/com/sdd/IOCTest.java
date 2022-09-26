@@ -106,17 +106,17 @@ public class IOCTest {
     @Test
     public void testConfigImport() {
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConfigImport.class);
+        // 获取上线文中的bean
         String[] beanDefinitionNames = applicationContext.getBeanDefinitionNames();
-        for (String name : beanDefinitionNames
-        ) {
+        for (String name : beanDefinitionNames) {
             System.out.println(name);
         }
 
         //工厂bean获取的是调用getObject创建的对象
         Object colorFactoryBean = applicationContext.getBean("colorFactoryBean");
-        System.out.println("bean的类型："+colorFactoryBean.getClass());
+        System.out.println("colorFactoryBean类型：" + colorFactoryBean.getClass());
         //工厂bean也可以获取他本身
         Object bean = applicationContext.getBean("&colorFactoryBean");
-        System.out.println("&colorFactoryBean 类型是："+bean.getClass());
+        System.out.println("&colorFactoryBean类型：" + bean.getClass());
     }
 }
