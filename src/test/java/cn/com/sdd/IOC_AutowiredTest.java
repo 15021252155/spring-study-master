@@ -4,7 +4,6 @@ import cn.com.sdd.bean.Boss;
 import cn.com.sdd.bean.Car;
 import cn.com.sdd.bean.Color;
 import cn.com.sdd.config.MainConfigOfAutowired;
-import cn.com.sdd.config.MainConfigOfLifeCycle;
 import cn.com.sdd.dao.BookDao;
 import cn.com.sdd.dao.PageDao;
 import cn.com.sdd.service.BookService;
