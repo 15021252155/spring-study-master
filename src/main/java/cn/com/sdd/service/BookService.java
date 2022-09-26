@@ -18,13 +18,12 @@ import javax.inject.Inject;
  **/
 @Service
 public class BookService {
-
     //Qualifier指定id注入，虽然写的名字是bookDao2，但通过指定 @Qualifier("bookDao")，查找的是bookDao
-    // @Qualifier("bookDao")
+    //@Qualifier("bookDao2")
     //@Autowired
-    //@Resource
+    @Resource
     //@Resource(name="bookDao2")
-    @Inject
+    //@Inject
     private BookDao bookDao;
 
     //IOC容器中

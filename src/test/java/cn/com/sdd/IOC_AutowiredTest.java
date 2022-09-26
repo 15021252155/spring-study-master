@@ -25,8 +25,25 @@ public class IOC_AutowiredTest {
         BookService bean = applicationContext.getBean(BookService.class);
         System.out.println(bean);
 
+        // 根据类型查询，可能会查询到多个,执行一下代码，如果注入了多个BookDao会报错
+        // MainConfigOfAutowired类注入bean的时候加上@Primary注解就不会报错了
         BookDao bean1 = applicationContext.getBean(BookDao.class);
-        System.out.println(bean1);
+        System.out.println("多个相同类型的bean，添加@Primary注解后，bean=" + bean1);
+
+        // 通过getBeanNamesForType方法，按照类型查询，可以查询到所有注入类型为BookDao的bean
+        String[] beanNamesForType = applicationContext.getBeanNamesForType(BookDao.class);
+        System.out.println("通过getBeanNamesForType方法获取到所有BookDao的bean");
+        for (String name : beanNamesForType) {
+            System.out.println(name);
+        }
+
+        // 指定bean名称查询
+        Object bookDao = applicationContext.getBean("bookDao");
+        System.out.println("指定bean名称查询，bookDao=" + bookDao);
+
+        // 指定bean名称查询
+        Object bookDao2 = applicationContext.getBean("bookDao2");
+        System.out.println("指定bean名称查询，bookDao2=" + bookDao2);
     }
 
     @Test
@@ -57,14 +74,14 @@ public class IOC_AutowiredTest {
         System.out.println(car);
     }
 
-     /**
-      * @Author suidd
-      * @Description 标注在有参构造器上：构造器要用的组件，从容器中获取
-      * @Date 22:17 2020/11/4
-      * @Param
-      * @return
-      * @Version 1.0
-      **/
+    /**
+     * @return
+     * @Author suidd
+     * @Description 标注在有参构造器上：构造器要用的组件，从容器中获取
+     * @Date 22:17 2020/11/4
+     * @Param
+     * @Version 1.0
+     **/
     @Test
     public void test04() {
         AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConfigOfAutowired.class);
@@ -76,14 +93,14 @@ public class IOC_AutowiredTest {
         System.out.println(car);
     }
 
-     /**
-      * @Author suidd
-      * @Description 通过bean标注的方法，创建对象的时候，方法参数的值，从容器中直接获取
-      * @Date 22:27 2020/11/4
-      * @Param
-      * @return
-      * @Version 1.0
-      **/
+    /**
+     * @return
+     * @Author suidd
+     * @Description 通过bean标注的方法，创建对象的时候，方法参数的值，从容器中直接获取
+     * @Date 22:27 2020/11/4
+     * @Param
+     * @Version 1.0
+     **/
     @Test
     public void test05() {
         AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConfigOfAutowired.class);

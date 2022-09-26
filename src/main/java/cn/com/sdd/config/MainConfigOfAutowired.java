@@ -18,7 +18,7 @@ import org.springframework.context.annotation.Primary;
  * 一、Autowired【spring定义的注解】:自动注入
  * 1）、默认按照类型去容器中找对应的组件：applicationContext.getBean(BookDao.class);
  * 2）、如果找到多个相同类型的组件，再将属性的名称作为组件的id去容器中查找，applicationContext.getBean("bookDao");
- * 3)、@Qualifier，使用@Qualifier("bookDao")指定需要装配的组件的id，而不是使用属性名
+ * 3)、@Qualifier，使用@Qualifier("bookDao")指定需要装配的组件的id，而不是使用属性名（Qualifier不能单独使用，要配合@Autowired、@Resource这些使用）
  * 4）、自动装配默认要将属性赋值好，没有就会报错
  * 可以使用@Autowired(required = false) 设置为非必须装配
  * 5）、@Primary ：标注这个的bean，当类型有多个的时候，优先装配标注@Primary，如果有@Qualifier，肯定按照@Qualifier，因为@Qualifier是指定装配
@@ -34,12 +34,12 @@ import org.springframework.context.annotation.Primary;
  * 1)、标注在方法上（默认可以不写@Autowired，都可以自动装配）
  * 2）、标注在构造器上（当类，只有一个有参构造器的时候，@Autowired可以省略，参数位置的组件还是可以从容器中获取）
  * 3）、标注在参数位置
- *
+ * <p>
  * 四、自定义组件，想要使用spring底层的一些组件，（ApplicationContext、BeanFactory、XXXX）
- *      自定义组件实现XXXAware：在创建的对象的时候，会调用接口规定的方法注入相关组件；Aware
- *      把Spring底层的一些组件注入到自定义的Bean中
- *      XXXAware：功能使用XXXProcessor
- *          ApplicationContextAware====>ApplicationContextAwareProcessor
+ * 自定义组件实现XXXAware：在创建的对象的时候，会调用接口规定的方法注入相关组件；Aware
+ * 把Spring底层的一些组件注入到自定义的Bean中
+ * XXXAware：功能使用XXXProcessor
+ * ApplicationContextAware====>ApplicationContextAwareProcessor
  * @Date 21:18 2020/11/3
  * @Version 1.0
  **/
