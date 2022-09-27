@@ -90,7 +90,7 @@ import org.springframework.context.annotation.Configuration;
  *          2）、registerListeners();
  *              ①、从容器中拿到所有监听器：
  *              String[] listenerBeanNames = getBeanNamesForType(ApplicationListener.class, true, false);
- *              ②、将listner注册到ApplicationEventMulticaster中：
+ *              ②、将listener注册到ApplicationEventMulticaster中：
  *              getApplicationEventMulticaster().addApplicationListenerBean(listenerBeanName);
  *
  * @Date 21:28 2020/11/9
